@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<h2>Employee List</h2>
+<a href="add-employee.html">Add New Employee</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="employeeTable"></tbody>
+</table>
+
+<script>
+    function loadEmployees() {
+        fetch('/api/employees')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById("employeeTable");
+                table.innerHTML = "";
+                data.forEach(emp => {
+                    table.innerHTML += `
+                        <tr>
+                            <td>${emp.id}</td>
+                            <td>${emp.name}</td>
+                            <td>${emp.email}</td>
+                            <td>${emp.department}</td>
+                            <td>
+                                <a href="edit-employee.html?id=${emp.id}">Edit</a> |
+                                <button onclick="deleteEmployee(${emp.id})">Delete</button>
+                            </td>
+                        </tr>`;
+                });
+            });
+    }
+
+    function deleteEmployee(id) {
+        fetch(`/api/employees/${id}`, { method: 'DELETE' })
+            .then(() => loadEmployees());
+    }
+
+    loadEmployees();
+</script>
+</body>
+</html>

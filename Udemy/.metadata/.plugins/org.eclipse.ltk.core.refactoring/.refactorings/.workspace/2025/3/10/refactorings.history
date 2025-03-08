@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;spring_04_bean_scope_xml&apos; to &apos;spring_07_bean_scope_xml&apos;&#x0D;&#x0A;- Original element: &apos;spring_04_bean_scope_xml&apos;&#x0D;&#x0A;- Renamed element: &apos;spring_04_bean_scope_xml&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;spring_04_bean_scope_xml&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=spring_04_bean_scope_xml" name="spring_07_bean_scope_xml" references="true" stamp="1741423204721" version="1.0"/>
+</session>

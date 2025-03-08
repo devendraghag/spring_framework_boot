@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+
+    <!-- Define the dependency -->
+    <bean id="myFortuneService" class="spring_01_demo.springdemo.HappyFortuneService"/>
+
+    <!-- Define a coach with constructor injection -->
+    <bean id="myCoach" class="spring_01_demo.springdemo.TrackCoach">
+        <constructor-arg ref="myFortuneService"/>
+    </bean>
+
+    <!-- Define a coach with setter injection -->
+    <bean id="myCricketCoach" class="spring_01_demo.springdemo.CricketCoach">
+        <property name="fortuneService" ref="myFortuneService"/>
+        <!-- Inject literal values -->
+        <property name="emailAddress" value="thebestcoach@luv2code.com"/>
+        <property name="team" value="Sunrisers Hyderabad"/>
+    </bean>
+
+</beans>
